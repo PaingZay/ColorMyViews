@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.colormyviews.databinding.ActivityMainBinding
@@ -28,7 +29,10 @@ class MainActivity : AppCompatActivity() {
             binding.boxThreeText,
             binding.boxFourText,
             binding.boxFiveText,
-            binding.main
+            binding.main,
+            binding.buttonRed,
+            binding.buttonYellow,
+            binding.buttonGreen
         )
         for (item in clickableViews) {
             item.setOnClickListener {makeColored(it)}
@@ -42,6 +46,9 @@ class MainActivity : AppCompatActivity() {
             binding.boxThreeText -> view.setBackgroundResource(android.R.color.holo_green_light)
             binding.boxFourText -> view.setBackgroundResource(android.R.color.holo_green_dark)
             binding.boxFiveText -> view.setBackgroundResource(android.R.color.holo_green_light)
+            binding.buttonRed -> view.setBackgroundColor(Color.RED)
+            binding.buttonYellow -> view.setBackgroundColor(ContextCompat.getColor(this, R.color.my_yellow))
+            binding.buttonGreen -> view.setBackgroundColor(ContextCompat.getColor(this, R.color.my_green))
             else -> view.setBackgroundColor(Color.LTGRAY)
         }
     }
